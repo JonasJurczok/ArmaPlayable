@@ -1,0 +1,27 @@
+OnLoadMission = "Catch the agent, and by catch I mean kill.";
+author="XiviD, modded for FATA by Fussel + nomi";
+overviewText="An enemy agent is somewhere in the area. Thanks to... some arrangement, we have a GPS tracker in his underwear.";
+onLoadName="Where is the agent?";
+overviewPicture="agent.jpg";
+onLoadMissionTime = True;
+respawn = 3;
+respawnDelay = 5;
+disabledAI = 1;
+
+debriefing = 1;
+class CfgDebriefing
+{
+	class End1
+	{
+		title = "Independent win";
+		subtitle = "The agent was killed";
+		description = "The independent army successfully located the agent and killed him.";
+	};
+	
+	class End2
+	{
+		title = "Agent wins";
+		subtitle = "The agent escaped";
+		description = "The agent managed to escape the independent army.";
+	};
+};
