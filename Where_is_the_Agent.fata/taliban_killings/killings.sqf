@@ -29,12 +29,13 @@ hintsilent format ["They fire back now... Beware!",_this];
 		_i = 0;
 		_wp = nil;
 		while {_i < civ_group_count} do {
-		_i = _i+1;
+		
 		//civ_group_count_helper = floor (civ_group_count);
 		random_civ_group = civ_groups select _i;
+		_i = _i+1;
 		_wp = random_civ_group addWaypoint [base_attackpoint, 50];
-		_wp setwaypointtype "MOVE";
-		_wp setwaypointspeed "FULL";
+		[_wp,1] setwaypointtype "MOVE";
+		[_wp,1] setwaypointspeed "FULL";
 		random_civ_group setCurrentWaypoint [_wp,1];
 		//_markername = format["%1",_i];
 		//_markername2 = format["%1_z",_i];
@@ -78,8 +79,8 @@ if isserver then {
 		_x addEventHandler ["killed", SHK_eh_killed];
 		};
 	} foreach allunits;
-	officer removeEventHandler ["killed", 0];
-	officer2 removeEventHandler ["killed", 0];
+	officer removeEventHandler ["killed", SHK_eh_killed;
+	officer2 removeEventHandler ["killed", SHK_eh_killed];
 
 	
 	officer2 addMPEventHandler ["MPRespawn", {_this execVM "onPlayerRespawn.sqf"}];

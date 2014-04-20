@@ -6,7 +6,7 @@ overviewPicture="agent.jpg";
 onLoadMissionTime = True;
 respawn = 3;
 respawnDelay = 5;
-disabledAI = 1;
+disabledAI = 0;
 
 debriefing = 1;
 class CfgDebriefing
@@ -15,13 +15,21 @@ class CfgDebriefing
 	{
 		title = "Independent win";
 		subtitle = "The agent was killed";
-		description = "The independent army successfully located the agent and killed him.";
+		description = "The NATO team successfully located the agent and killed him.";
 	};
 	
 	class End2
 	{
 		title = "Agent wins";
 		subtitle = "The agent escaped";
-		description = "The agent managed to escape the independent army.";
+		description = "The agent managed to escape the NATO team.";
 	};
+};
+
+class Header
+{
+ gameType = Assyemtric Coop;            //DM, Team, Coop, ...
+ minPlayers = 2;             //min # of players the mission supports
+ maxPlayers = 11;            //Max # of players the mission supports
+ playerCountMultipleOf = 1;
 };
