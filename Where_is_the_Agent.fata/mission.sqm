@@ -3796,7 +3796,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={5586.9595,109.46884,5911.3843};
+					position[]={5585.9697,109.46884,5911.6768};
 					id=165;
 					side="WEST";
 					vehicle="B_Soldier_TL_F";
@@ -5040,29 +5040,28 @@ class Mission
 	};
 	class Sensors
 	{
-		items=11;
+		items=12;
 		class Item0
 		{
 			position[]={5376.9097,84.323799,5675.272};
 			a=0;
 			b=0;
-			timeoutMin=3;
-			timeoutMid=3;
-			timeoutMax=3;
+			timeoutMin=5;
+			timeoutMid=5;
+			timeoutMax=5;
 			type="END1";
 			age="UNKNOWN";
-			expCond="!alive officer";
+			expCond="trig_agent_dead";
 			class Effects
 			{
-				titleType="TEXT";
-				titleEffect="BLACK IN";
-				title="The Agent is dead. Well done, fellow NATOmericans!";
 			};
 		};
 		class Item1
 		{
-			position[]={5459.6772,109.46884,5856.542};
-			activationBy="GUER";
+			position[]={5526.6895,75.026085,5100.1187};
+			a=7000;
+			b=7000;
+			activationBy="EAST";
 			timeoutMin=1800;
 			timeoutMid=1800;
 			timeoutMax=1800;
@@ -5204,6 +5203,22 @@ class Mission
 			expActiv="{[_x] joinsilent grp_blufor2;} forEach units grp_aaf;if (!isNull blufor_boss2) then {deleteVehicle blufor_boss2;};";
 			class Effects
 			{
+			};
+		};
+		class Item11
+		{
+			position[]={5393.1895,86.120155,5693.3618};
+			a=0;
+			b=0;
+			interruptable=1;
+			age="UNKNOWN";
+			name="trig_agent_dead";
+			expCond="!alive officer";
+			class Effects
+			{
+				titleType="TEXT";
+				titleEffect="BLACK IN";
+				title="The Agent is dead. Well done, fellow NATOmericans!";
 			};
 		};
 	};
