@@ -4,7 +4,9 @@ _unit = _this select 0;
 
 if (_unit != officer2) exitWith{};
 
-if (!firstspawn) exitWith {
+if (firstspawn == 0) exitWith {
+firstspawn = firstspawn + 1;
+publicvariable "firstspawn";
 
 removeallweapons _unit; 
 removevest _unit; 
@@ -43,15 +45,10 @@ clearMagazineCargoGlobal (uniformContainer _unit);
 clearWeaponCargoGlobal (uniformContainer _unit);
 (uniformContainer _unit) addmagazinecargoGlobal ["CAF_10RND_762X54_SVD",2];
 _unit selectWeapon (primaryWeapon _unit);
-firstspawn = true;
-publicvariable "firstspawn";
 };
 
-cutText ["Your mind feels dizzy... you dreamed you would be an agent. But you are not!", "BLACK FADED"];
-sleep 5;
-titleCut ["", "BLACK IN", 3];
-
-	//hintsilent format ["seitenwechsel ist %1 ", seitenwechsel];
+if (firstspawn == 1) exitWith{
+//hintsilent format ["seitenwechsel ist %1 ", seitenwechsel];
 	if (seitenwechsel) then {
 	[_unit] joinsilent grp_blufor2;
 	//hintsilent format ["joinsilent grp_blufor2"];
@@ -60,7 +57,62 @@ titleCut ["", "BLACK IN", 3];
 	{
 	[_unit] joinsilent grp_aaf;
 	//hintsilent format ["joinsilent aaf"];
-	};
+};
+//hintsilent format ["seitenwechsel..removing all gear"];
+	removeallweapons _unit;
+	removevest _unit;
+	removeuniform _unit;
+	removeheadgear _unit;
+	removeallassigneditems _unit;
+	//hintsilent format ["removed everything"];
+"dynamicBlur" ppEffectEnable true; // enables ppeffect
+"dynamicBlur" ppEffectAdjust [20]; // intensity of blur
+"dynamicBlur" ppEffectCommit 0; // time till vision is fully blurred
+cutText ["Your mind feels dizzy... you dreamed you would be an agent. But you are not!", "BLACK FADED"];
+	sleep 0.5;
+
+[[{}, _unit addUniform "U_B_CombatUniform_mcam"], "BIS_fnc_spawn", true] call BIS_fnc_MP; //attention to the syntax here. This, and only this syntax worked for me, even with other resources showing differently
+_unit addbackpack "B_AssaultPack_blk";  
+_unit addheadgear "H_HelmetB_paint"; 
+
+_unit addweapon "arifle_MX_F";  
+_unit addweapon "Binocular";
+    
+_unit addmagazine "30Rnd_65x39_Caseless_mag"; 
+_unit addmagazine "30Rnd_65x39_Caseless_mag";  
+_unit addmagazine "30Rnd_65x39_Caseless_mag";  
+ 
+_unit addmagazine "SmokeShell";  
+_unit addmagazine "SmokeShell";  
+_unit addmagazine "HandGrenade";  
+_unit addmagazine "HandGrenade"; 
+ 
+   
+_unit additem "FirstAidKit";
+_unit additem "ItemMap";
+_unit assignitem "ItemMap";
+_unit additem "ItemGPS";
+_unit assignitem "ItemGPS";
+_unit additem "ItemCompass";
+_unit assignitem "ItemCompass";
+_unit additem "ItemWatch";
+_unit assignitem "ItemWatch";
+
+_unit addmagazine "chemlight_blue";
+_unit addmagazine "chemlight_yellow";
+
+firstspawn = firstspawn + 1;
+publicvariable "firstspawn";
+
+sleep 5;
+titleCut ["", "BLACK IN", 3];
+"dynamicBlur" ppEffectAdjust [0]; // intensity of blur
+"dynamicBlur" ppEffectCommit 5; // time till vision is fully blurred
+sleep 5;
+"dynamicBlur" ppEffectEnable false; // disables ppeffect
+};
+
+	
 
 	//hintsilent format ["seitenwechsel..removing all gear"];
 	removeallweapons _unit;

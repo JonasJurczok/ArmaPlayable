@@ -11,6 +11,6 @@ waituntil {(alive player)};
 enableRadio false;
 seitenwechsel = false;
 publicVariable "seitenwechsel";
-firstspawn = false;
+firstspawn = 0;
 publicVariable "firstspawn";
 //hintsilent format ["init complete"];
