@@ -5046,14 +5046,16 @@ class Mission
 			position[]={5376.9097,84.323799,5675.272};
 			a=0;
 			b=0;
-			timeoutMin=5;
-			timeoutMid=5;
-			timeoutMax=5;
+			timeoutMin=4;
+			timeoutMid=4;
+			timeoutMax=4;
 			type="END1";
 			age="UNKNOWN";
 			expCond="trig_agent_dead";
+			expActiv="forceEnd;";
 			class Effects
 			{
+				titleEffect="BLACK";
 			};
 		};
 		class Item1
@@ -5214,10 +5216,11 @@ class Mission
 			age="UNKNOWN";
 			name="trig_agent_dead";
 			expCond="!alive officer";
+			expActiv="trig_agent_dead = true;";
 			class Effects
 			{
 				titleType="TEXT";
-				titleEffect="BLACK IN";
+				titleEffect="BLACK FADED";
 				title="The Agent is dead. Well done, fellow NATOmericans!";
 			};
 		};

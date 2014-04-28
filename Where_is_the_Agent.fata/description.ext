@@ -1,12 +1,13 @@
 OnLoadMission = "Catch the agent, and by catch I mean kill.";
 author="XiviD, modded for FATA by Fussel + nomi";
-overviewText="An enemy agent is somewhere in the area. Thanks to... some arrangement, we have a GPS tracker in his underwear.";
+overviewText="An enemy agent is somewhere in the area. Thanks to... some arrangement, we have a GPS tracker in his underwear. This mission is designed for a BLUFOR OPFOR ratio of > 3 : 1";
 onLoadName="Where is the agent?";
 overviewPicture="agent.jpg";
 onLoadMissionTime = True;
 respawn = 3;
 respawnDelay = 5;
 disabledAI = 0;
+joinUnassigned = false;
 
 debriefing = 1;
 class CfgDebriefing

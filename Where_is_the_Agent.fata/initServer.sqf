@@ -1,0 +1,1 @@
+onPlayerConnected "[_id, _name] execVM ""CheckForKick.sqf""";
