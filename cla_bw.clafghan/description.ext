@@ -1,0 +1,33 @@
+respawn = "4";
+respawndelay = "1";
+
+author = nomisum;
+onLoadName = Elimi Nation;
+onLoadMission = German special forces are tasked to patrol the area;
+
+class Header
+{
+	gameType = Coop; // Game type, see 'class' columns in the table below
+	minPlayers = 1; //min # of players the mission supports
+	maxPlayers = 8; //max # of players the mission supports
+};
+
+enableDebugConsole = 2;
+
+class CfgFunctions {
+    #include "EPD\EPDcfgFunctions.hpp"
+};
+
+class CfgIdentities
+{
+	class BinMaket
+	{
+		name="Omar BinMaket";
+        //nameSound = "Givens"; // ArmA3 only!
+		face="PersianHead_A3_03";
+		glasses="G_aviator";
+		speaker="Male05ENG";
+		pitch=1.1;
+	};
+};
+#include "spect\spectating.hpp"

@@ -1,0 +1,3 @@
+; Initialize spectating script when player dies:
+player setVariable ["BWA3_Pain, 0.0"];
+_this execVM "spect\specta.sqf";

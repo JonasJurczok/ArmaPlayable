@@ -1,0 +1,121 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, AIBEHAVIORARTY">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin_State",0,250,51.780502,-234.880783,141.780472,-184.880783,0.000000,"Begin State"};
+item1[] = {"True_",8,218,44.291321,-308.972748,134.291321,-258.972748,0.000000,"True" \n ""};
+item2[] = {"Base_Arty_Checks",2,4346,30.949036,-409.206024,130.295319,-354.827759,0.000000,"Base Arty Checks"};
+item3[] = {"_",-1,250,104.598244,-389.443237,108.972237,-389.443237,0.000000,""};
+item4[] = {"Wait",4,218,-40.064865,-396.145844,11.065582,-364.520538,0.000000,"Wait"};
+item5[] = {"Distance1_",4,218,27.975212,-508.802307,133.760803,-447.060883,50.000000,"Distance1" \n ""};
+item6[] = {"Base_Morale_Stat",2,250,47.680206,-616.672546,147.026489,-562.294250,0.000000,"Base Morale State"};
+version=1;
+class LayoutItems
+{
+	class Item3
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=10;
+			lStyle=1;
+		};
+	};
+};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,4};
+link3[] = {2,5};
+link4[] = {4,2};
+link5[] = {5,6};
+globals[] = {0.000000,0,0,0,0,640,480,2,107,6316128,1,-267.754456,346.948608,-228.616806,-788.051880,501,486,1};
+window[] = {0,-1,-1,-1,-1,1101,316,1321,470,1,519};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "AIBEHAVIORARTY";
+  class States
+  {
+    /*%FSM<STATE "Begin_State">*/
+    class Begin_State
+    {
+      name = "Begin_State";
+      init = /*%FSM<STATEINIT""">*/"_Unit = _this select 0;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "True_">*/
+        class True_
+        {
+          priority = 0.000000;
+          to="Base_Arty_Checks";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Base_Arty_Checks">*/
+    class Base_Arty_Checks
+    {
+      name = "Base_Arty_Checks";
+      init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+       "_Point = _Unit getvariable ""CLOSESTENEMY"";" \n
+       "_UseArtillery = false;" \n
+       "if (!(isNil ""_Point"")) then {" \n
+       "if ((_Point distance _Unit) > 400) then {" \n
+       "if ((_Point distance _Unit) < 4000) then {" \n
+       "_UseArtillery = true;" \n
+       "};" \n
+       "};" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Distance1_">*/
+        class Distance1_
+        {
+          priority = 50.000000;
+          to="Base_Morale_Stat";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_UseArtillery"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Wait">*/
+        class Wait
+        {
+          priority = 0.000000;
+          to="Base_Arty_Checks";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + (5 + random 1)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Base_Morale_Stat">*/
+    class Base_Morale_Stat
+    {
+      name = "Base_Morale_Stat";
+      init = /*%FSM<STATEINIT""">*/"_ArtyReq = _Unit getvariable ""ARTYREQUESTED"";" \n
+       "if (_ArtyReq == 1) then {" \n
+       "if (_Unit in ArtilleryArray) then {" \n
+       "[_Unit] spawn VCOM_fnc_ArtyCall;" \n
+       "};" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Begin_State";
+  finalStates[] =
+  {
+  };
+};
+/*%FSM</COMPILE>*/

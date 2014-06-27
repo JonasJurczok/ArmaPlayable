@@ -1,0 +1,17 @@
+m key - toggle map - mini map - no map
+h key - while on map stop updating markers in case of low perf
+n key - toggle night vision and thermal modes
+t key - toggle unit side identification
+y key - toggle unit combat awareness status identification
+h key - toggle map marker update
+v key - toggle (temporary 4x) viewdistance 
+ctrl + v-key - increase viewdistance up to 12km
+c key - cycle camera mode
+a/d key - select previous/next unit in lock-on and chase mode
+1,2,3 key - direct cam switch
+f1 - help
+esc - close spectator mode
+tab - hide hud
+w,s,a,d,q,z key or mouse wheel - move camera in free mode (use alt or ctrl key to speed up camera movement)
+alt + right mouse button - change FOV zoom
+ctrl + alt + right mouse button - reset FOV zoom

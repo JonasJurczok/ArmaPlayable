@@ -1,0 +1,257 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, AIMORALE">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Begin_State",0,250,51.780502,-234.880783,141.780472,-184.880783,0.000000,"Begin State"};
+item1[] = {"True_",8,218,44.291321,-308.972748,134.291321,-258.972748,0.000000,"True" \n ""};
+item2[] = {"Base_Morale_Stat",2,250,30.949036,-409.206024,130.295319,-354.827759,0.000000,"Base Morale State"};
+item3[] = {"_",-1,250,104.598244,-389.443237,108.972237,-389.443237,0.000000,""};
+item4[] = {"NOAI",4,218,145.616379,-365.650726,235.616425,-315.650726,110.000000,"NOAI"};
+item5[] = {"END1",1,250,226.960052,-314.810913,316.960083,-264.810913,0.000000,"END1"};
+item6[] = {"__0_100_",4,218,133.520248,-478.144684,223.520264,-428.144745,100.000000,"70-100" \n ""};
+item7[] = {"__0_70_",4,218,40.380005,-479.354248,130.379959,-429.354309,90.000000,"40-70" \n ""};
+item8[] = {"___40_",4,218,-52.760258,-479.354279,37.239765,-429.354340,80.000000,"0-40" \n ""};
+item9[] = {"Low_Morale_",2,250,-77.236046,-562.486877,22.110256,-508.108643,0.000000,"Low Morale" \n ""};
+item10[] = {"Okay_Morale_",2,250,31.629185,-562.486816,130.975433,-508.108582,0.000000,"Okay Morale" \n ""};
+item11[] = {"High_Morale_",2,250,141.704010,-564.906067,241.050278,-510.527832,0.000000,"High Morale" \n ""};
+item12[] = {"True_",8,218,-70.741684,-622.118103,19.258320,-572.118103,0.000000,"True" \n ""};
+item13[] = {"True_",8,218,35.344292,-623.396179,125.344261,-573.396179,0.000000,"True" \n ""};
+item14[] = {"True_",8,218,146.542862,-627.230713,236.542862,-577.230713,0.000000,"True" \n ""};
+item15[] = {"Effects",2,250,39.298050,-723.532959,138.644318,-669.154724,0.000000,"Effects"};
+item16[] = {"Wait",4,218,-40.064865,-396.145844,11.065582,-364.520538,0.000000,"Wait"};
+item17[] = {"Wait",4,218,51.769497,-865.057739,102.899940,-833.432373,0.000000,"Wait"};
+item18[] = {"",7,210,-260.708069,-885.075867,-252.708069,-877.075867,0.000000,""};
+item19[] = {"",7,4306,-282.363037,-388.085297,-274.363037,-380.085297,0.000000,""};
+version=1;
+class LayoutItems
+{
+	class Item3
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=10;
+			lStyle=1;
+		};
+	};
+};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,4};
+link3[] = {2,6};
+link4[] = {2,7};
+link5[] = {2,8};
+link6[] = {2,16};
+link7[] = {4,5};
+link8[] = {6,11};
+link9[] = {7,10};
+link10[] = {8,9};
+link11[] = {9,12};
+link12[] = {10,13};
+link13[] = {11,14};
+link14[] = {12,15};
+link15[] = {13,15};
+link16[] = {14,15};
+link17[] = {15,17};
+link18[] = {16,2};
+link19[] = {17,18};
+link20[] = {18,19};
+link21[] = {19,2};
+globals[] = {0.000000,0,0,0,0,640,480,2,105,6316128,1,-351.569763,321.327698,-259.672943,-912.423767,501,486,1};
+window[] = {0,-1,-1,-1,-1,856,225,1230,225,1,519};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "AIMORALE";
+  class States
+  {
+    /*%FSM<STATE "Begin_State">*/
+    class Begin_State
+    {
+      name = "Begin_State";
+      init = /*%FSM<STATEINIT""">*/"_Unit = _this select 0;" \n
+       "_UseAI = _Unit getVariable ""NOAI"";" \n
+       "if (isNil (""_UseAI"")) then {" \n
+       "_UseAI = 0;" \n
+       "};" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "True_">*/
+        class True_
+        {
+          priority = 0.000000;
+          to="Base_Morale_Stat";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Base_Morale_Stat">*/
+    class Base_Morale_Stat
+    {
+      name = "Base_Morale_Stat";
+      init = /*%FSM<STATEINIT""">*/"_t = time;" \n
+       "_UnitMorale = _Unit getvariable ""VCOMMorale"";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "NOAI">*/
+        class NOAI
+        {
+          priority = 110.000000;
+          to="END1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_UseAI == 1"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "__0_100_">*/
+        class __0_100_
+        {
+          priority = 100.000000;
+          to="High_Morale_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((_UnitMorale >= 70) && (_UnitMorale <= 100))"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "__0_70_">*/
+        class __0_70_
+        {
+          priority = 90.000000;
+          to="Okay_Morale_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((_UnitMorale >= 40) && (_UnitMorale <= 70))"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "___40_">*/
+        class ___40_
+        {
+          priority = 80.000000;
+          to="Low_Morale_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((_UnitMorale >= 0) && (_UnitMorale <= 40))"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Wait">*/
+        class Wait
+        {
+          priority = 0.000000;
+          to="Base_Morale_Stat";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + (2 + random 1)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "END1">*/
+    class END1
+    {
+      name = "END1";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Low_Morale_">*/
+    class Low_Morale_
+    {
+      name = "Low_Morale_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "True_">*/
+        class True_
+        {
+          priority = 0.000000;
+          to="Effects";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Okay_Morale_">*/
+    class Okay_Morale_
+    {
+      name = "Okay_Morale_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "True_">*/
+        class True_
+        {
+          priority = 0.000000;
+          to="Effects";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "High_Morale_">*/
+    class High_Morale_
+    {
+      name = "High_Morale_";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "True_">*/
+        class True_
+        {
+          priority = 0.000000;
+          to="Effects";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Effects">*/
+    class Effects
+    {
+      name = "Effects";
+      init = /*%FSM<STATEINIT""">*/"_UnitMorale = _Unit getvariable ""VCOMMorale"";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Wait">*/
+        class Wait
+        {
+          priority = 0.000000;
+          to="Base_Morale_Stat";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _t + (2 + random 1)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Begin_State";
+  finalStates[] =
+  {
+    "END1",
+  };
+};
+/*%FSM</COMPILE>*/
