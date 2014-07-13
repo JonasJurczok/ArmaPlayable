@@ -1,0 +1,115 @@
+author = "nomisum";
+onLoadName = "Spoiled Stash";
+onLoadMission = "Special forces are tasked to destroy terrorist weapon caches.";
+
+class Header
+{
+	gameType = Coop; // Game type, see 'class' columns in the table below
+	minPlayers = 3; //min # of players the mission supports
+	maxPlayers = 13; //max # of players the mission supports
+};
+
+enableDebugConsole = 0;
+
+class CfgSounds
+{
+ sounds[] = {};
+  class mScream1
+  {
+   name = "mScream1";   
+   sound[] = {"Sound\mScream\Scream_01.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class mScream2
+  {
+   name = "mScream2";   
+   sound[] = {"Sound\mScream\Scream_02.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class mScream3
+  {
+   name = "mScream3";   
+   sound[] = {"Sound\mScream\Scream_03.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class mScream4
+  {
+   name = "mScream4";   
+   sound[] = {"Sound\mScream\Scream_04.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class mScream5
+  {
+   name = "mScream5";   
+   sound[] = {"Sound\mScream\Scream_05.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class mScream6
+  {
+   name = "mScream6";   
+   sound[] = {"Sound\mScream\Scream_06.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class mScream7
+  {
+   name = "mScream7";   
+   sound[] = {"Sound\mScream\Scream_07.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class mScream8
+  {
+   name = "mScream8";   
+   sound[] = {"Sound\mScream\Scream_08.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  
+  class fScream1
+  {
+   name = "fScream1";   
+   sound[] = {"Sound\fScream\scream_01.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class fScream2
+  {
+   name = "fScream2";   
+   sound[] = {"Sound\fScream\scream_02.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class fScream3
+  {
+   name = "fScream3";   
+   sound[] = {"Sound\fScream\scream_03.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class fScream4
+  {
+   name = "fScream4";   
+   sound[] = {"Sound\fScream\scream_04.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class fScream5
+  {
+   name = "fScream5";   
+   sound[] = {"Sound\fScream\scream_05.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class fScream6
+  {
+   name = "fScream6";   
+   sound[] = {"Sound\fScream\scream_06.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class fScream7
+  {
+   name = "fScream7";   
+   sound[] = {"Sound\fScream\scream_07.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+  class fScream8
+  {
+   name = "fScream8";   
+   sound[] = {"Sound\fScream\scream_08.ogg", db+10, 1, 100};   
+   titles[] = {};
+  };
+
+};
