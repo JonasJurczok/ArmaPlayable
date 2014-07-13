@@ -49,7 +49,6 @@
 
 
 
-
 if (!(isServer)) exitWith {};
 
 publicVariable "current_frequency";

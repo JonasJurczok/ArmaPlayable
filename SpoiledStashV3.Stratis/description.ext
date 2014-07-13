@@ -1,6 +1,7 @@
 author = "nomisum";
 onLoadName = "Spoiled Stash";
 onLoadMission = "Special forces are tasked to destroy terrorist weapon caches.";
+loadScreen = "spoiled.paa";
 
 class Header
 {

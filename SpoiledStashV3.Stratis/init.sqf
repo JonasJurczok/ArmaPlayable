@@ -16,7 +16,7 @@ tf_no_auto_long_range_radio = true;
 current_frequency = "";
 publicvariable "current_frequency";
 
-// titleCut ["", "BLACK FADED", 999]; 
+ titleCut ["", "BLACK FADED", 999]; 
     
 [] Spawn { 
 
@@ -32,5 +32,5 @@ publicvariable "current_frequency";
     "dynamicBlur" ppEffectAdjust [0.0];   
     "dynamicBlur" ppEffectCommit 5;   
 
-    titleCut ["", "BLACK IN", 3]; 
+    titleCut ["", "BLACK IN", 2]; 
 };
