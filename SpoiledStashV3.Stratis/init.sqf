@@ -1,3 +1,6 @@
+tf_no_auto_long_range_radio = true;
+[] execVM "zlt_fieldrepair.sqf";
+
 trackingPrecision = 20;
 
 randomize_coord = {    
@@ -45,9 +48,9 @@ else {
 
 
 
-tf_no_auto_long_range_radio = true;
-[] execVM "zlt_fieldrepair.sqf";
 
+
+if (isServer) then {
 
 SHOW_TIME = false;
 publicVariable "SHOW_TIME";
@@ -76,6 +79,7 @@ skiptime (((paramsarray select 0) - daytime + 24) % 24);
 END_TIME = (paramsarray select 1); //When mission should end in seconds.
 publicVariable "END_TIME";
 
+};
 
 
 
@@ -108,13 +112,12 @@ waitUntil {mission_start};
 
     [] spawn 
     {
-tickTime_ausgleich = diag_tickTime;
 hint format ["Government is advancing.\nMission begins now. \nDuration is %1 mins",floor(END_TIME/60)];
                 ELAPSED_TIME  = 0;
         START_TIME = diag_tickTime;
         while {ELAPSED_TIME < END_TIME} do 
         {
-            ELAPSED_TIME = diag_tickTime - START_TIME - tickTime_ausgleich;
+            ELAPSED_TIME = diag_tickTime - START_TIME;
             publicVariable "ELAPSED_TIME";
             sleep 1;
            
@@ -127,7 +130,6 @@ if !(isDedicated) then
 {waitUntil {mission_start};
     [] spawn 
     {
-    tickTime_ausgleich = diag_tickTime;
     hint format ["Government is advancing.\nMission begins now. \nDuration is %1 mins",floor(END_TIME/60)];
     ELAPSED_TIME  = 0;
         while{ELAPSED_TIME < END_TIME } do
@@ -135,10 +137,6 @@ if !(isDedicated) then
             _time = END_TIME - ELAPSED_TIME;
             _finish_time_minutes = floor(_time / 60);
             _finish_time_seconds = floor(_time) - (60 * _finish_time_minutes);
-
-            if (_time < 10) then {
-                nul=[] execVM "end\timeout.sqf";
-            };
 
             if(_finish_time_seconds < 10) then
             {

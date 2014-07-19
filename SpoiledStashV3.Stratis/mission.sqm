@@ -44,8 +44,7 @@ class Mission
 		"A3_Soft_F_Truck",
 		"A3_Soft_F_Gamma_Offroad",
 		"A3_Soft_F_SUV",
-		"A3_Weapons_F_Gamma_Ammoboxes",
-		"a3_uav_f_weapons_f_gamma_ammoboxes"
+		"A3_Static_F_Mortar_01"
 	};
 	addOnsAuto[]=
 	{
@@ -87,8 +86,7 @@ class Mission
 		"A3_Soft_F_Truck",
 		"A3_Soft_F_Gamma_Offroad",
 		"A3_Soft_F_SUV",
-		"A3_Weapons_F_Gamma_Ammoboxes",
-		"a3_uav_f_weapons_f_gamma_ammoboxes",
+		"A3_Static_F_Mortar_01",
 		"a3_map_stratis"
 	};
 	randomSeed=16494026;
@@ -2509,7 +2507,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=49;
+		items=48;
 		class Item0
 		{
 			position[]={2968.2239,3.49,5956.478};
@@ -2947,161 +2945,146 @@ class Mission
 		};
 		class Item36
 		{
-			position[]={2972.0637,3.49,5961.0127};
-			azimut=69.641403;
-			offsetY=3.9000001;
-			special="NONE";
-			id=104;
-			side="EMPTY";
-			vehicle="Land_Poster_04_F";
-			leader=1;
-			skill=0.60000002;
-		};
-		class Item37
-		{
 			position[]={2973.8416,3.49,5960.5938};
 			azimut=115.51;
 			offsetY=5.5;
 			special="NONE";
-			id=105;
+			id=104;
 			side="EMPTY";
 			vehicle="Land_Poster_02_F";
 			leader=1;
 			skill=0.60000002;
 			init="this enableSimulation false;";
 		};
-		class Item38
+		class Item37
 		{
 			position[]={2971.1606,3.49,5960.0044};
 			azimut=115.51;
 			offsetY=5;
 			special="NONE";
-			id=106;
+			id=105;
 			side="EMPTY";
 			vehicle="Land_Map_unfolded_F";
 			leader=1;
 			skill=0.60000002;
 		};
-		class Item39
+		class Item38
 		{
 			position[]={2970.8811,3.49,5961.3911};
 			azimut=64.521637;
 			offsetY=5;
 			special="NONE";
-			id=107;
+			id=106;
 			side="EMPTY";
 			vehicle="Land_SurvivalRadio_F";
 			leader=1;
 			skill=0.60000002;
 		};
-		class Item40
+		class Item39
 		{
 			position[]={2972.4827,3.49,5963.1235};
 			azimut=115.51;
 			offsetY=3.9000001;
 			special="NONE";
-			id=108;
+			id=107;
 			side="EMPTY";
 			vehicle="Land_Sleeping_bag_F";
 			leader=1;
 			skill=0.60000002;
 		};
-		class Item41
+		class Item40
 		{
 			position[]={2941.7012,3.4663234,5942.4141};
 			azimut=105.92153;
 			offsetY=0.2;
 			special="NONE";
-			id=109;
+			id=108;
 			side="EMPTY";
 			vehicle="AGM_Box_Medical";
 			leader=1;
 			skill=0.60000002;
 		};
-		class Item42
+		class Item41
 		{
 			position[]={2941.075,3.461123,5940.4492};
 			azimut=105.92153;
 			offsetY=0.2;
 			special="NONE";
-			id=110;
+			id=109;
 			side="EMPTY";
 			vehicle="AGM_Box_Misc";
 			leader=1;
 			skill=0.60000002;
 		};
-		class Item43
+		class Item42
 		{
 			position[]={2940.5271,3.4349372,5938.417};
 			azimut=105.922;
 			offsetY=0.2;
 			special="NONE";
-			id=111;
+			id=110;
 			side="EMPTY";
 			vehicle="Box_IND_AmmoOrd_F";
 			leader=1;
 			skill=0.60000002;
-			init="clearMagazineCargoGlobal this;  clearWeaponCargoGlobal this;  clearItemCargoGlobal this;  clearBackpackCargoGlobal this; this addItemCargoGlobal [""tf_anprc148""];this addItemCargoGlobal [""tf_anprc148""];this addItemCargoGlobal [""tf_anprc148""];this addItemCargoGlobal [""tf_anprc148""];this addItemCargoGlobal [""tf_anprc148""]; this addItemCargoGlobal [""ATMine_Range_Mag"", 10];this addItemCargoGlobal [""APERSMine_Range_Mag"",10];this addItemCargoGlobal [""DemoCharge_Remote_Mag"",10];";
+			init="clearMagazineCargoGlobal this;  clearWeaponCargoGlobal this;  clearItemCargoGlobal this;  clearBackpackCargoGlobal this; this addItemCargoGlobal [""ATMine_Range_Mag"", 5];this addItemCargoGlobal [""APERSMine_Range_Mag"",5];this addItemCargoGlobal [""DemoCharge_Remote_Mag"",5];";
 		};
-		class Item44
+		class Item43
 		{
 			position[]={2926.3774,3.4681861,5941.6519};
-			azimut=296.40863;
+			azimut=296.409;
 			offsetY=8.3999996;
 			special="NONE";
-			id=112;
+			id=111;
 			side="EMPTY";
 			vehicle="C_Van_01_transport_F";
 			leader=1;
 			skill=0.60000002;
+			text="truck";
+			init="clearMagazineCargoGlobal this;  clearWeaponCargoGlobal this;  clearItemCargoGlobal this;  clearBackpackCargoGlobal this; this addMagazine [""8Rnd_82mm_Mo_shells"",8];";
 		};
-		class Item45
+		class Item44
 		{
 			position[]={2971.8313,3.3499999,6042.541};
 			azimut=122.09394;
 			offsetY=8.3999996;
 			special="NONE";
-			id=113;
+			id=112;
 			side="EMPTY";
 			vehicle="B_G_Offroad_01_armed_F";
 			leader=1;
 			skill=0.60000002;
 		};
-		class Item46
+		class Item45
 		{
 			position[]={2875.3713,3.2561219,6006.6768};
 			azimut=20.151995;
 			offsetY=8.3999996;
 			special="NONE";
-			id=114;
+			id=113;
 			side="EMPTY";
 			vehicle="C_SUV_01_F";
 			leader=1;
 			skill=0.60000002;
 		};
+		class Item46
+		{
+			position[]={2930.8372,3.46,5936.877};
+			azimut=-0.016676299;
+			id=114;
+			side="EMPTY";
+			vehicle="I_Mortar_01_support_F";
+			skill=0.60000002;
+			init="this moveInCargo truck;";
+		};
 		class Item47
 		{
-			position[]={2933.6077,3.4659808,5942.9399};
-			azimut=105.922;
-			offsetY=0.2;
-			special="NONE";
+			position[]={2932.7009,3.4529908,5936.9639};
 			id=115;
 			side="EMPTY";
-			vehicle="I_UAV_01_backpack_F";
-			leader=1;
+			vehicle="O_Mortar_01_weapon_F";
 			skill=0.60000002;
-		};
-		class Item48
-		{
-			position[]={2933.4272,3.4653773,5942.1509};
-			azimut=105.922;
-			offsetY=0.2;
-			special="NONE";
-			id=116;
-			side="EMPTY";
-			vehicle="Item_I_UavTerminal";
-			leader=1;
-			skill=0.60000002;
+			init="this moveInCargo truck;";
 		};
 	};
 	class Markers
@@ -3312,7 +3295,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=24;
+		items=23;
 		class Item0
 		{
 			position[]={2769.0176,-0.1210033,6047.7446};
@@ -3547,13 +3530,13 @@ class Mission
 		};
 		class Item15
 		{
-			position[]={3082.4063,19.184341,5446.4966};
+			position[]={3081.7742,19.058115,5446.812};
 			a=0;
 			b=0;
 			interruptable=1;
 			age="UNKNOWN";
 			text="time = 40min";
-			expCond="(END_TIME - ELAPSED_TIME) == 2400";
+			expCond="floor(END_TIME - ELAPSED_TIME) == 2400";
 			expActiv="nul = [] execVM ""show_time.sqf"";";
 			class Effects
 			{
@@ -3561,13 +3544,13 @@ class Mission
 		};
 		class Item16
 		{
-			position[]={3077.4219,46.986118,5591.9478};
+			position[]={3078.6863,46.633625,5589.7349};
 			a=0;
 			b=0;
 			interruptable=1;
 			age="UNKNOWN";
 			text="time < 1";
-			expCond="(END_TIME - ELAPSED_TIME) == 1";
+			expCond="floor(END_TIME - ELAPSED_TIME) == 1";
 			expActiv="nul = [] execVM ""end\timeout.sqf"";";
 			class Effects
 			{
@@ -3575,13 +3558,13 @@ class Mission
 		};
 		class Item17
 		{
-			position[]={3080.1406,28.220121,5528.0576};
+			position[]={3081.405,23.68478,5519.522};
 			a=0;
 			b=0;
 			interruptable=1;
 			age="UNKNOWN";
 			text="time = 10min";
-			expCond="(END_TIME - ELAPSED_TIME) == 600";
+			expCond="floor(END_TIME - ELAPSED_TIME) == 600";
 			expActiv="nul = [] execVM ""show_time.sqf"";";
 			class Effects
 			{
@@ -3589,13 +3572,13 @@ class Mission
 		};
 		class Item18
 		{
-			position[]={3080.5938,12.236197,5492.7144};
+			position[]={3080.0034,33.83424,5541.4194};
 			a=0;
 			b=0;
 			interruptable=1;
 			age="UNKNOWN";
-			text="time = 10min";
-			expCond="(END_TIME - ELAPSED_TIME) == 600";
+			text="time = 1min";
+			expCond="floor(END_TIME - ELAPSED_TIME) == 60";
 			expActiv="nul = [] execVM ""show_time.sqf"";";
 			class Effects
 			{
@@ -3603,13 +3586,13 @@ class Mission
 		};
 		class Item19
 		{
-			position[]={3079.6875,38.762466,5553.4321};
+			position[]={3079.9087,43.297894,5569.9346};
 			a=0;
 			b=0;
 			interruptable=1;
 			age="UNKNOWN";
-			text="time = 1min";
-			expCond="(END_TIME - ELAPSED_TIME) == 60";
+			text="time = 10s";
+			expCond="floor(END_TIME - ELAPSED_TIME) == 10";
 			expActiv="nul = [] execVM ""show_time.sqf"";";
 			class Effects
 			{
@@ -3617,13 +3600,13 @@ class Mission
 		};
 		class Item20
 		{
-			position[]={3078.3281,43.644707,5572.4634};
+			position[]={3080.5935,12.908506,5495.8755};
 			a=0;
 			b=0;
 			interruptable=1;
 			age="UNKNOWN";
-			text="time = 10s";
-			expCond="(END_TIME - ELAPSED_TIME) == 10";
+			text="time = 20min";
+			expCond="floor(END_TIME - ELAPSED_TIME) == 1200";
 			expActiv="nul = [] execVM ""show_time.sqf"";";
 			class Effects
 			{
@@ -3631,13 +3614,13 @@ class Mission
 		};
 		class Item21
 		{
-			position[]={3080.5938,12.236197,5492.7144};
+			position[]={3081.9954,12.892733,5470.1113};
 			a=0;
 			b=0;
 			interruptable=1;
 			age="UNKNOWN";
-			text="time = 20min";
-			expCond="(END_TIME - ELAPSED_TIME) == 1200";
+			text="time = 30min";
+			expCond="floor(END_TIME - ELAPSED_TIME) == 1800";
 			expActiv="nul = [] execVM ""show_time.sqf"";";
 			class Effects
 			{
@@ -3645,24 +3628,11 @@ class Mission
 		};
 		class Item22
 		{
-			position[]={3081.0469,12.512147,5472.3247};
-			a=0;
-			b=0;
-			interruptable=1;
-			age="UNKNOWN";
-			text="time = 30min";
-			expCond="(END_TIME - ELAPSED_TIME) == 1800";
-			expActiv="nul = [] execVM ""show_time.sqf"";";
-			class Effects
-			{
-			};
-		};
-		class Item23
-		{
 			position[]={3158.5281,38.659206,5499.647};
 			a=0;
 			b=0;
 			activationBy="JULIET";
+			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
 			expActiv="nul = [] execVM ""show_time.sqf"";";

@@ -9,7 +9,7 @@ respawnDelay = 3;
 
 class Header
 {
-	gameType = Coop; // Game type, see 'class' columns in the table below
+	gameType = Team; // Game type, see 'class' columns in the table below
 	minPlayers = 3; //min # of players the mission supports
 	maxPlayers = 13; //max # of players the mission supports
 };
@@ -20,16 +20,16 @@ class Params
 {
   class TimeOfDay {
     title = "Time of Day";
-    values[] = {3,8,14,19};
+    values[] = {3,8,14,19.15};
     texts[] = {"Night","Morning","Midday","Dusk"};
-    default = 19;
+    default = 19.15;
   };
 
   class TimeLimit {
     Title = "Mission Time Limit";
-    values[] = {181,2760,3600,4500,5400};
+    values[] = {180,2760,3600,4500,5400};
     texts[] = {"3 min (DEBUG)","45 min","60 min","75 min","90 min"};
-    default = 181;
+    default = 180;
   };
 
   class TimeBonus {
