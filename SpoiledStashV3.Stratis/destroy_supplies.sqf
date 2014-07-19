@@ -9,8 +9,3 @@ END_TIME = END_TIME + bonus_time;
 publicvariable "END_TIME";
 hint format["Bonus Time added: %1 mikes",bonus_time/60];
 sleep 7;
-SHOW_TIME = true;
-publicVariable "SHOW_TIME";
-sleep 10;
-SHOW_TIME = false;
-publicVariable "SHOW_TIME";

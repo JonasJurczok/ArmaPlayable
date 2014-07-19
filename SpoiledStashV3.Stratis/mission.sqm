@@ -3106,7 +3106,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=28;
+		items=29;
 		class Item0
 		{
 			position[]={2991.1965,3.49,5956.9282};
@@ -3302,10 +3302,17 @@ class Mission
 			type="hd_start";
 			colorName="ColorOrange";
 		};
+		class Item28
+		{
+			position[]={3080.019,56.801289,5626.0781};
+			name="bla1";
+			text="time trigger";
+			type="Empty";
+		};
 	};
 	class Sensors
 	{
-		items=15;
+		items=24;
 		class Item0
 		{
 			position[]={2769.0176,-0.1210033,6047.7446};
@@ -3534,6 +3541,131 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			expActiv="mission_start = true; publicVariable ""mission_start"";";
+			class Effects
+			{
+			};
+		};
+		class Item15
+		{
+			position[]={3082.4063,19.184341,5446.4966};
+			a=0;
+			b=0;
+			interruptable=1;
+			age="UNKNOWN";
+			text="time = 40min";
+			expCond="(END_TIME - ELAPSED_TIME) == 2400";
+			expActiv="nul = [] execVM ""show_time.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item16
+		{
+			position[]={3077.4219,46.986118,5591.9478};
+			a=0;
+			b=0;
+			interruptable=1;
+			age="UNKNOWN";
+			text="time < 1";
+			expCond="(END_TIME - ELAPSED_TIME) == 1";
+			expActiv="nul = [] execVM ""end\timeout.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item17
+		{
+			position[]={3080.1406,28.220121,5528.0576};
+			a=0;
+			b=0;
+			interruptable=1;
+			age="UNKNOWN";
+			text="time = 10min";
+			expCond="(END_TIME - ELAPSED_TIME) == 600";
+			expActiv="nul = [] execVM ""show_time.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item18
+		{
+			position[]={3080.5938,12.236197,5492.7144};
+			a=0;
+			b=0;
+			interruptable=1;
+			age="UNKNOWN";
+			text="time = 10min";
+			expCond="(END_TIME - ELAPSED_TIME) == 600";
+			expActiv="nul = [] execVM ""show_time.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item19
+		{
+			position[]={3079.6875,38.762466,5553.4321};
+			a=0;
+			b=0;
+			interruptable=1;
+			age="UNKNOWN";
+			text="time = 1min";
+			expCond="(END_TIME - ELAPSED_TIME) == 60";
+			expActiv="nul = [] execVM ""show_time.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item20
+		{
+			position[]={3078.3281,43.644707,5572.4634};
+			a=0;
+			b=0;
+			interruptable=1;
+			age="UNKNOWN";
+			text="time = 10s";
+			expCond="(END_TIME - ELAPSED_TIME) == 10";
+			expActiv="nul = [] execVM ""show_time.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item21
+		{
+			position[]={3080.5938,12.236197,5492.7144};
+			a=0;
+			b=0;
+			interruptable=1;
+			age="UNKNOWN";
+			text="time = 20min";
+			expCond="(END_TIME - ELAPSED_TIME) == 1200";
+			expActiv="nul = [] execVM ""show_time.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item22
+		{
+			position[]={3081.0469,12.512147,5472.3247};
+			a=0;
+			b=0;
+			interruptable=1;
+			age="UNKNOWN";
+			text="time = 30min";
+			expCond="(END_TIME - ELAPSED_TIME) == 1800";
+			expActiv="nul = [] execVM ""show_time.sqf"";";
+			class Effects
+			{
+			};
+		};
+		class Item23
+		{
+			position[]={3158.5281,38.659206,5499.647};
+			a=0;
+			b=0;
+			activationBy="JULIET";
+			interruptable=1;
+			age="UNKNOWN";
+			expActiv="nul = [] execVM ""show_time.sqf"";";
 			class Effects
 			{
 			};

@@ -109,7 +109,7 @@ waitUntil {mission_start};
     [] spawn 
     {
 tickTime_ausgleich = diag_tickTime;
-hint format ["Government is advancing.\nMission begins now. \nDuration is %1 mikes",END_TIME/60];
+hint format ["Government is advancing.\nMission begins now. \nDuration is %1 mins",floor(END_TIME/60)];
                 ELAPSED_TIME  = 0;
         START_TIME = diag_tickTime;
         while {ELAPSED_TIME < END_TIME} do 
@@ -128,7 +128,7 @@ if !(isDedicated) then
     [] spawn 
     {
     tickTime_ausgleich = diag_tickTime;
-    hint format ["Government is advancing.\nMission begins now. \nDuration is %1 mikes",END_TIME/60];
+    hint format ["Government is advancing.\nMission begins now. \nDuration is %1 mins",floor(END_TIME/60)];
     ELAPSED_TIME  = 0;
         while{ELAPSED_TIME < END_TIME } do
         {
@@ -148,7 +148,7 @@ if !(isDedicated) then
             {
                 _finish_time_minutes = format ["0%1", _finish_time_minutes];
             };
-            _formatted_time = format ["%1:%2", _finish_time_minutes, _finish_time_seconds];
+            _formatted_time = format ["%1:%2 mins", _finish_time_minutes, _finish_time_seconds];
             
 
             if (SHOW_TIME) then {
@@ -156,14 +156,6 @@ if !(isDedicated) then
             };
             
 
-           
-
-            if (_time == 180) then {
-            hintSilent format ["Time left:\n%1", _formatted_time];
-            }; // wenn nur noch 3min, ausgabe
-            if (_time < 60) then {
-            hintSilent format ["Time left:\n%1", _formatted_time];
-            }; // wenn nur noch 60s, ausgabe
             sleep 1;
             
         };

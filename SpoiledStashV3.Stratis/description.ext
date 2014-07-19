@@ -27,9 +27,9 @@ class Params
 
   class TimeLimit {
     Title = "Mission Time Limit";
-    values[] = {190,2760,3600,4500,5400};
+    values[] = {181,2760,3600,4500,5400};
     texts[] = {"3 min (DEBUG)","45 min","60 min","75 min","90 min"};
-    default = 2760;
+    default = 181;
   };
 
   class TimeBonus {
