@@ -31,7 +31,7 @@
     };
 
     while {alive player} do {
-        if ((TF_tangent_sw_pressed) || (TF_tangent_lr_pressed) || (TF_tangent_dd_pressed)) then {hint "DU FUNKST";
+        if ((TF_tangent_sw_pressed) || (TF_tangent_lr_pressed) || (TF_tangent_dd_pressed)) then {
         _player_freq = (call TFAR_fnc_ActiveSwRadio) call TFAR_fnc_getSwFrequency;
 			if (isNil "_player_freq") then {hint "player freq is nil";sleep 1;} 
 				else {

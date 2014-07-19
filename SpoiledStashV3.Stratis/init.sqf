@@ -1,22 +1,88 @@
-{_x setMarkerAlphaLocal 0} foreach ["civplace1"];
-if (!(side player == independent)) then {
+trackingPrecision = 20;
 
+randomize_coord = {    
+    _this + random(trackingPrecision * 2) - trackingPrecision
+};
+
+randomize_pos =
+{
+    private ["_randomizedPos", "_trueX", "_trueY"];
+    
+    _trueX = _this select 0;
+    _trueY = _this select 1;
+    
+    _randomizedPos = [
+         _trueX call randomize_coord,
+        _trueY call randomize_coord,
+        _this select 2
+    ];
+    
+    _randomizedPos
+};
+
+_markerPos = (getPos supplies_south) call randomize_pos;
+"cache_south" setMarkerPos _markerPos;
+_markerPos = (getPos supplies_west) call randomize_pos;
+"cache_west" setMarkerPos _markerPos;
+_markerPos = (getPos supplies_north) call randomize_pos;
+"cache_north" setMarkerPos _markerPos;
+
+if (!(side player == independent)) then {
 "mrkGovernmentStart" setMarkerAlphaLocal 0;
 "mrkGovernmentAttack" setMarkerAlphaLocal 0; 
 "mrkGovernmentStart" setMarkerAlphaLocal 0;
+"mrkGovernmentText" setMarkerAlphaLocal 0;
+"mrkResistanceObjective1" setMarkerPos (getPos supplies_south);
+"mrkResistanceObjective2" setMarkerPos (getPos supplies_west);
+"mrkResistanceObjective3" setMarkerPos (getPos supplies_north);
 }
 else {
-"mrkResistanceObjective1" setMarkerAlphaLocal 0;;
-"mrkResistanceObjective2" setMarkerAlphaLocal 0;;
-"mrkResistanceObjective3" setMarkerAlphaLocal 0;;  
+"mrkResistanceObjective1" setMarkerAlphaLocal 0;
+"mrkResistanceObjective2" setMarkerAlphaLocal 0;
+"mrkResistanceObjective3" setMarkerAlphaLocal 0;
+"mrkResistanceStart" setMarkerAlphaLocal 0;
 };
+
+
+
 tf_no_auto_long_range_radio = true;
 [] execVM "zlt_fieldrepair.sqf";
 
-current_frequency = "";
-publicvariable "current_frequency";
 
- titleCut ["", "BLACK FADED", 999]; 
+SHOW_TIME = false;
+publicVariable "SHOW_TIME";
+
+current_frequency = "";
+publicVariable "current_frequency";
+
+mission_start = false;
+publicVariable "mission_start";
+
+bonus_time = (paramsarray select 2);
+publicVariable "bonus_time";
+
+hacking_time = (paramsarray select 3);
+publicVariable "hacking_time";
+
+jip_disabled = (paramsarray select 4);
+publicVariable "jip_disabled";
+
+ELAPSED_TIME  = 0;
+
+tickTime_ausgleich = 0;
+
+// TIME MANAGEMENT
+skiptime (((paramsarray select 0) - daytime + 24) % 24);
+END_TIME = (paramsarray select 1); //When mission should end in seconds.
+publicVariable "END_TIME";
+
+
+
+
+
+
+
+titleCut ["", "BLACK FADED", 999]; 
     
 [] Spawn { 
 
@@ -34,3 +100,72 @@ publicvariable "current_frequency";
 
     titleCut ["", "BLACK IN", 2]; 
 };
+
+
+
+if (isServer) then {
+waitUntil {mission_start};
+
+    [] spawn 
+    {
+tickTime_ausgleich = diag_tickTime;
+hint format ["Government is advancing.\nMission begins now. \nDuration is %1 mikes",END_TIME/60];
+                ELAPSED_TIME  = 0;
+        START_TIME = diag_tickTime;
+        while {ELAPSED_TIME < END_TIME} do 
+        {
+            ELAPSED_TIME = diag_tickTime - START_TIME - tickTime_ausgleich;
+            publicVariable "ELAPSED_TIME";
+            sleep 1;
+           
+        };
+    };
+};
+
+
+if !(isDedicated) then
+{waitUntil {mission_start};
+    [] spawn 
+    {
+    tickTime_ausgleich = diag_tickTime;
+    hint format ["Government is advancing.\nMission begins now. \nDuration is %1 mikes",END_TIME/60];
+    ELAPSED_TIME  = 0;
+        while{ELAPSED_TIME < END_TIME } do
+        {
+            _time = END_TIME - ELAPSED_TIME;
+            _finish_time_minutes = floor(_time / 60);
+            _finish_time_seconds = floor(_time) - (60 * _finish_time_minutes);
+
+            if (_time < 10) then {
+                nul=[] execVM "end\timeout.sqf";
+            };
+
+            if(_finish_time_seconds < 10) then
+            {
+                _finish_time_seconds = format ["0%1", _finish_time_seconds];
+            };
+            if(_finish_time_minutes < 10) then
+            {
+                _finish_time_minutes = format ["0%1", _finish_time_minutes];
+            };
+            _formatted_time = format ["%1:%2", _finish_time_minutes, _finish_time_seconds];
+            
+
+            if (SHOW_TIME) then {
+                hintSilent format ["Time left:\n%1", _formatted_time];
+            };
+            
+
+           
+
+            if (_time == 180) then {
+            hintSilent format ["Time left:\n%1", _formatted_time];
+            }; // wenn nur noch 3min, ausgabe
+            if (_time < 60) then {
+            hintSilent format ["Time left:\n%1", _formatted_time];
+            }; // wenn nur noch 60s, ausgabe
+            sleep 1;
+            
+        };
+    };
+};  
