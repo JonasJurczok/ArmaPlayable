@@ -1,74 +1,38 @@
 tf_no_auto_long_range_radio = true;
 [] execVM "zlt_fieldrepair.sqf";
 
-trackingPrecision = 20;
+// set all Markers invisible for JIP ... make them visible on demand!
 
-randomize_coord = {    
-    _this + random(trackingPrecision * 2) - trackingPrecision
-};
-
-randomize_pos =
-{
-    private ["_randomizedPos", "_trueX", "_trueY"];
-    
-    _trueX = _this select 0;
-    _trueY = _this select 1;
-    
-    _randomizedPos = [
-         _trueX call randomize_coord,
-        _trueY call randomize_coord,
-        _this select 2
-    ];
-    
-    _randomizedPos
-};
-
-_markerPos = (getPos supplies_south) call randomize_pos;
-"cache_south" setMarkerPos _markerPos;
-_markerPos = (getPos supplies_west) call randomize_pos;
-"cache_west" setMarkerPos _markerPos;
-_markerPos = (getPos supplies_north) call randomize_pos;
-"cache_north" setMarkerPos _markerPos;
-
-if (!(side player == independent)) then {
-"mrkGovernmentStart" setMarkerAlphaLocal 0;
-"mrkGovernmentAttack" setMarkerAlphaLocal 0; 
-"mrkGovernmentStart" setMarkerAlphaLocal 0;
-"mrkGovernmentText" setMarkerAlphaLocal 0;
-"mrkResistanceObjective1" setMarkerPos (getPos supplies_south);
-"mrkResistanceObjective2" setMarkerPos (getPos supplies_west);
-"mrkResistanceObjective3" setMarkerPos (getPos supplies_north);
-}
-else {
 "mrkResistanceObjective1" setMarkerAlphaLocal 0;
 "mrkResistanceObjective2" setMarkerAlphaLocal 0;
 "mrkResistanceObjective3" setMarkerAlphaLocal 0;
 "mrkResistanceStart" setMarkerAlphaLocal 0;
-};
+"mrkGovernmentStart" setMarkerAlphaLocal 0;
+"mrkGovernmentAttack" setMarkerAlphaLocal 0; 
+"mrkGovernmentStart" setMarkerAlphaLocal 0;
+"mrkGovernmentText" setMarkerAlphaLocal 0;
 
-
-
-
+[] execVM "manageMarkers.sqf";
 
 if (isServer) then {
 
 SHOW_TIME = false;
 publicVariable "SHOW_TIME";
 
-current_frequency = "";
-publicVariable "current_frequency";
+CURRENT_FREQUENCY = "";
+publicVariable "CURRENT_FREQUENCY";
 
-mission_start = false;
-publicVariable "mission_start";
+MISSION_START = false;
+publicVariable "MISSION_START";
 
-bonus_time = (paramsarray select 2);
-publicVariable "bonus_time";
+BONUS_TIME = (paramsarray select 2);
+publicVariable "BONUS_TIME";
 
-hacking_time = (paramsarray select 3);
-publicVariable "hacking_time";
+HACKING_TIME = (paramsarray select 3);
+publicVariable "HACKING_TIME";
 
-jip_disabled = (paramsarray select 4);
-publicVariable "jip_disabled";
+JIP_DISABLED = (paramsarray select 4);
+publicVariable "JIP_DISABLED";
 
 ELAPSED_TIME  = 0;
 
@@ -108,7 +72,7 @@ titleCut ["", "BLACK FADED", 999];
 
 
 if (isServer) then {
-waitUntil {mission_start};
+waitUntil {MISSION_START};
 
     [] spawn 
     {
@@ -127,7 +91,7 @@ hint format ["Government is advancing.\nMission begins now. \nDuration is %1 min
 
 
 if !(isDedicated) then
-{waitUntil {mission_start};
+{waitUntil {MISSION_START};
     [] spawn 
     {
     hint format ["Government is advancing.\nMission begins now. \nDuration is %1 mins",floor(END_TIME/60)];

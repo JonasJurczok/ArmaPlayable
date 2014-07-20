@@ -6,12 +6,13 @@ loadScreen = "spoiled.paa";
 respawn = "BASE";
 respawnOnStart = 0;
 respawnDelay = 3;
+respawnButton = 0;
 
 class Header
 {
 	gameType = Team; // Game type, see 'class' columns in the table below
 	minPlayers = 3; //min # of players the mission supports
-	maxPlayers = 13; //max # of players the mission supports
+	maxPlayers = 14; //max # of players the mission supports
 };
 
 enableDebugConsole = 1;
@@ -20,16 +21,16 @@ class Params
 {
   class TimeOfDay {
     title = "Time of Day";
-    values[] = {3,8,14,19.15};
-    texts[] = {"Night","Morning","Midday","Dusk"};
-    default = 19.15;
+    values[] = {3,5,15,19};
+    texts[] = {"Night","Dawn","Midday","Sunset"};
+    default = 19;
   };
 
   class TimeLimit {
     Title = "Mission Time Limit";
     values[] = {180,2760,3600,4500,5400};
     texts[] = {"3 min (DEBUG)","45 min","60 min","75 min","90 min"};
-    default = 180;
+    default = 2760;
   };
 
   class TimeBonus {

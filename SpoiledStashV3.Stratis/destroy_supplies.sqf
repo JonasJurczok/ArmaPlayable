@@ -5,7 +5,7 @@ _target setDamage 1;bomb="M_Mo_120mm_AT_LG" createVehicle (_pos);sleep 0.3;bomb2
 
 
 
-END_TIME = END_TIME + bonus_time;
+END_TIME = END_TIME + BONUS_TIME;
 publicvariable "END_TIME";
-hint format["Bonus Time added: %1 mikes",bonus_time/60];
+hint format["Bonus Time added: %1 mikes",BONUS_TIME/60];
 sleep 7;

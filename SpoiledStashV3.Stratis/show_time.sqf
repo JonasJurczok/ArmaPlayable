@@ -1,6 +1,8 @@
+_duration = _this select 0;
+
 SHOW_TIME = true;
 publicVariable "SHOW_TIME";
-sleep 10;
+sleep _duration;
 SHOW_TIME = false;
 publicVariable "SHOW_TIME";
 hint "";

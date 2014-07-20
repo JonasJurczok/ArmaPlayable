@@ -1,6 +1,6 @@
-_x = hacking_time/10;
+_x = HACKING_TIME/10;
 
-if (current_frequency == "") exitWith {
+if (CURRENT_FREQUENCY == "") exitWith {
 	hint format ["Hacking radio tower."];
 sleep _x;
 hint format ["Hacking radio tower.."];
@@ -43,4 +43,4 @@ hint format ["Hacking radio tower.........."];
 sleep _x;
 hint format ["Hacking radio tower..........done"];
 sleep 1;
-hint format ["Government sides last used frequency was %1",current_frequency];
+hint format ["Government sides last used frequency was %1",CURRENT_FREQUENCY];
