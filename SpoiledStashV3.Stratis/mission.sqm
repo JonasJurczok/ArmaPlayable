@@ -2672,6 +2672,7 @@ class Mission
 			vehicle="I_Heli_light_03_unarmed_F";
 			leader=1;
 			skill=0.60000002;
+			text="Wildcat";
 			init="clearMagazineCargoGlobal this;  clearWeaponCargoGlobal this;  clearItemCargoGlobal this;  clearBackpackCargoGlobal this;";
 		};
 		class Item13
