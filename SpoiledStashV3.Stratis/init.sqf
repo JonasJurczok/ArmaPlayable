@@ -13,6 +13,7 @@ tf_no_auto_long_range_radio = true;
 "mrkGovernmentText" setMarkerAlphaLocal 0;
 
 [] execVM "manageMarkers.sqf";
+[] execVM "set_unit_markers.sqf";
 
 if (isServer) then {
 
